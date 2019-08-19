@@ -3,6 +3,7 @@
 	"displayName": "storkMarket_Plug",
 	"description": "",
 	"version": "0.0.1",
+	"publisher":"samRoll",
 	"engines": {
 		"vscode": "^1.37.0"
 	},

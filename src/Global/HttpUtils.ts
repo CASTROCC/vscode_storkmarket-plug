@@ -12,7 +12,6 @@ export function get(url: string, call: (data: any) => void): any {
         res.on("end",function(){
             var data = Buffer.concat(arr,length);
             var change_data = iconv.decode(data,'gb18030'); 
-            console.log(change_data .toString());
             if (call) {
                 call(change_data);
             }

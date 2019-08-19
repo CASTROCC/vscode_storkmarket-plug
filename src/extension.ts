@@ -10,22 +10,10 @@ const storkMarketId: string = 'extension.storkmarketPlug';
 // sh601006
 const baseUrl: string = 'http://hq.sinajs.cn/list=';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "storkmarket-plug" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
 	
 	let disposable = vscode.commands.registerCommand( storkMarketId, (param: string = "sz000568") => {
 
-		// show Tips
-		let n = StatusBarItem.getNumberOfSelectedLines(vscode.window.activeTextEditor);
 		let url = baseUrl + param;
 		setInterval(()=>{
 			HttpUtils.get(url, (data: string)=>{
@@ -33,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
 				StatusBarItem.setOriginalData(data);
 			});
 		}, 500);
-		vscode.window.showInformationMessage(`Yeah, ${n} line(s) selected... Keep going!`);
+		vscode.window.showInformationMessage("hellow");
 	});
 
 	SubScriptUtils.addToSubScripts(context, disposable);
