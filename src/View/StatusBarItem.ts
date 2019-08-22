@@ -23,20 +23,24 @@ export function updateStatusBarItem(): void {
 	let price: string = original[3];
 	let time: string = original[31];
 	let start: number = parseFloat(original[1]);
-	let perNum: number = ( (parseFloat(price) - start) / start * 100);
+	let perNum: number = ((parseFloat(price) - start) / start * 100);
 	let percent: string = perNum.toFixed(2);
 
 	var color: string;
+	var showIcon: string ;
 	let compare: number = Math.floor(perNum * 100) / 100
 	if (compare > 0) {
-		color = typeColor.up
+		color = typeColor.up;
+		showIcon = "↑";
 	} else if (compare < 0) {
-		color = typeColor.down
+		color = typeColor.down;
+		showIcon = "↓";
 	} else {
 		color = typeColor.balance;
+		showIcon = "-"
 	}
 
-	bar.text = `${name}  ${price}  ${percent}%   ${time} `;
+	bar.text = `${name}  ${showIcon}  ${price}  ${percent}%   ${time} `;
 	bar.show();
 	bar.color = color;
 	
